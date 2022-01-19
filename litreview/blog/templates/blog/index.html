@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Page d'accueil</title>
+    {% load static %}
+  <link rel="stylesheet" href="{% static '/blog/style.css' %}">
+  <script src="script.js"></script>
+</head>
+<body>
+    <div id="title">
+        <h1>LITReview</h1>
+    </div>
+    
+    <div id="inscription">
+        <h2>Inscrivez-vous maintenant</h2>
+        <button id="bouton_inscription">S'inscrire</button>
+    </div>
+
+    <div id="connexion">
+        <h2>Connectez-vous</h2>
+        <form id="form_connexion">
+            <input type="text" placeholder="Nom d'utilisateur">
+            <br>
+            <input type="text" placeholder="Mot de passe">
+            <br>
+            <button id="bouton_connexion">Se connecter</button>
+        </form>
+    </div>
+</body>
+</html>
