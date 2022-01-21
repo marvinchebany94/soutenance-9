@@ -26,3 +26,11 @@ def page_creation_critique(request):
 def page_creation_critique_reponse_a_un_ticket(request):
     return render(request, 'templates/blog/creation_critique_reponse_a_un_ticket.html')
 
+
+def page_posts(request):
+    return render(request, 'templates/blog/posts.html')
+
+
+def page_creation_ticket(request):
+    return render(request, 'templates/blog/creation_ticket.html')
+
