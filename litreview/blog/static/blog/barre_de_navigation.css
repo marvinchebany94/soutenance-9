@@ -1,0 +1,21 @@
+#header {
+    display: flex;
+
+}
+
+#nom_du_site {
+    text-align: center;
+}
+
+
+#liens_navigations {
+    right: 25px;
+}
+
+li {
+    display: inline;
+    font-size: large;
+}
+
+
+
