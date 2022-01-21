@@ -1,0 +1,21 @@
+#title  {
+    border-color: black;
+    border-style: solid;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
+}
+
+#form_connexion {
+    text-align: center;
+}
+
+#formulaire_inscription {
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 500px;
+    height: 25px;
+    margin-bottom: 25px;
+}
