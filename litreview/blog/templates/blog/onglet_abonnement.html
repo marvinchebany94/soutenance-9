@@ -3,7 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>Abonnement</title>
-  <link rel="stylesheet" href="style.css">
+    {% block header %}
+    {% include 'blog/barre_de_navigation.html' %}
+    {% endblock %}
+    {% load static %}
+  <link rel="stylesheet" href="{% static '/blog/onglet_abonnement.css' %}">
   <script src="script.js"></script>
 </head>
 <body>
@@ -11,14 +15,13 @@
     <h2>Suivre d'autres utilisateurs</h2>
     <input type="text" placeholder="Nom d'utilisateur" id="bouton_envoyer">
     <button>Envoyer</button>
+</div>
 
-    <h2>Abonnements</h2>
-    <p>Creer comme un tableau avec à gauche les pseudos et à droite un bouton Désabonner</p>
-    <p>Jean_5679</p>
-    <button id="bouton_desabonner">Désabonner</button>
+{% block content %}
+{% include 'blog/abonnements.html' %}
+{% include 'blog/abonnés.html' %}
+{% endblock %}
 
-    <h2>Abonnés</h2>
-    <p>Jean_5679</p>
-</div>   
+
 </body>
 </html>

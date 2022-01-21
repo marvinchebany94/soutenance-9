@@ -3,36 +3,21 @@
 <head>
   <meta charset="utf-8">
   <title>Page de flux</title>
+    {% block header %}
+    {% include 'blog/barre_de_navigation.html' %}
+    {% endblock %}
   {% load static %}
   <link rel="stylesheet" href="{% static 'blog/flux.css' %}">
   <script src="script.js"></script>
 </head>
 <body>
-    <div id="title">
-        <h1>LITReview</h1>
-    </div>
+    <button id="demander_une_critique" onclick="window.location.href = '/creer-un-ticket'";>Demander une critique</button>
+    <button id="creer_une_critique">Créer une critique</button>
 
-    <ul>
-        <li><a href="flux.html">Flux</a></li>
-        <li><a href="Posts.asp">Posts</a></li>
-        <li><a href="Abonnements.html">Abonnements</a></li>
-        <li><a href="Se deconnecter">Se deconnecter</a></li>
-      </ul>
-
-    <div id="demander_creer_une_critique">
-        <button id="demander_une_critique">Demander une critique</button>
-        <button id="CREER_une_critique">Creer une critique</button>
-    </div>
-
-    <div id='ticket_demande critique'>
-        <a id="demander_une_critique">Marvin a demandé une critique</a>
-        <br>
-        <a id="date">5:14, 26 août 2020</a>
-        <br>
-        <a id="livre">Une brève histoire du temps - Stephane Hawkiing</a>
-        <br>
-        <button id="creer_une_critique">Créer une critique</button>
-
-    </div>
+    {% block content %}
+    {% include 'blog/review.html' %}
+    {% include 'blog/tickets.html' %}
+    {% include 'blog/vos_reviews.html' %}
+    {% endblock %}
 </body>
 </html>

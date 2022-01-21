@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <title>Page d'inscription</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/blog/inscription.css' %}">
+  <script src=""></script>
 </head>
 <body>
     <div id="title">
@@ -20,10 +21,11 @@
             <br>
             <input type="text" placeholder="Comfirmer mot de passe">
             <br>
-            <button id="bouton_retourner">Retourner</button>
+        </form>
+            <button id="bouton_retourner" onclick="window.location.href = '/connexion/'";>Retourner</button>
             <button id="bouton_connexion">S'inscrire</button>
 
-        </form>
+
     </div>
 </body>
 </html>
