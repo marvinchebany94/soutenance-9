@@ -23,5 +23,6 @@ urlpatterns = [
     path('abonnement/', views.page_onglet_abonnement),
     path('creer-une-critique/', views.page_creation_critique),
     path('creer-une-reponse/', views.page_creation_critique_reponse_a_un_ticket),
-
+    path('creer-un-ticket', views.page_creation_ticket),
+    path('posts/', views.page_posts),
 ]
