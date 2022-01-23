@@ -1,0 +1,10 @@
+form, h1 {
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 500px;
+    height: 25px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
