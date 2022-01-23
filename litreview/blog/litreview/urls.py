@@ -17,7 +17,7 @@ from django.urls import include, path
 from blog import views
 
 urlpatterns = [
-    path('connexion/', views.connexion),
+    path('index/', views.connexion),
     path('inscription/', views.page_inscription),
     path('flux/', views.page_flux),
     path('abonnement/', views.page_onglet_abonnement),
@@ -25,4 +25,7 @@ urlpatterns = [
     path('creer-une-reponse/', views.page_creation_critique_reponse_a_un_ticket),
     path('creer-un-ticket', views.page_creation_ticket),
     path('posts/', views.page_posts),
+    path('vos-posts', views.page_vos_posts),
+    path('modifier-ticket', views.page_modification_ticket),
+    path('deconnexion/', views.logout_view)
 ]
