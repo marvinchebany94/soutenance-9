@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Abonnement</title>
+    {% block header %}
+    {% include 'blog/barre_de_navigation.html' %}
+    {% endblock %}
+    {% load static %}
+  <link rel="stylesheet" href="{% static '/blog/onglet_abonnement.css' %}">
+  <script src="script.js"></script>
+</head>
+<body>
+<div id="onglet_abonnement"></div>
+    <form action="" method="post">
+        {% csrf_token %}
+        <h2>{{form.UserResearch.label_tag}}</h2>
+        {{form.UserResearch}}
+        <br>
+        <input type="submit" value="Ajouter">
+        {% if error %}
+        <p>La personne recherchée n'existe pas.</p>
+        {% endif %}
+        {% if relation_exists %}
+        <p>Vous suivez déjà la personne.</p>
+        {% endif %}
+        {% if error_formulaire %}
+        <p>Le formulaire a mal été rempli.</p>
+        {% endif %}
+        {% if operation_done %}
+        <p>Désormais vous suivez cette personne !</p>
+        {% endif %}
+        {% if want_follow_himself %}
+        <p>Vous ne pouvez pas vous suivre vous même !</p>
+        {% endif %}
+    </form>
+</div>
+
+<div id="abonnement">
+    <h2>Abonnements</h2>
+    {% if not abonnements %}
+    <p>Aucun abonnement pour le moment.</p>
+    {% endif %}
+    {% for abonnement in abonnements %}
+        <p id="followed_peoples_pseudo">{{abonnement.username}}</p>
+        <button id="bouton_desabonner">Désabonner</button>
+    {% endfor %}
+</div>
+
+<div id="abonnes">
+    <h2>Abonnés</h2>
+    {% if not abonnes %}
+    <p>Aucun abonné pour le moment.</p>
+    {% endif %}
+    {% for abonne in abonnes %}
+    <p id="followers_pseudo">{{abonne.username}}</p>
+    {% endfor %}
+</div>
+
+
+</body>
+</html>

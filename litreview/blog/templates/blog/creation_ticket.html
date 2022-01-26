@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Création de ticket</title>
+    {% block header %}
+    {% include 'blog/barre_de_navigation.html' %}
+    {% endblock %}
+    {% load static %}
+  <link rel="stylesheet" href="{% static 'blog/creation_ticket.css' %}">
+</head>
+<body>
+<div id="creation_ticket"></div>
+
+    <h1>Créer un ticket</h1>
+    <form action="" method="post">
+
+        {% csrf_token %}
+        {% for input in form %}
+
+            {{ input.label_tag }}
+            <br>
+            {{ input }}
+            <br>
+
+        {% endfor %}
+        <button id="bouton_telecharger_fichier">Télécharger fichier</button>
+        <br>
+        <br>
+        <input type="submit" id="bouton_envoyer" value="Envoyer">
+        {% if already_exists %}
+            <br>
+            <p>Un ticket au même titre existe déjà.</p>
+        {% endif %}
+
+    </form>
+</div>   
+</body>
+</html>

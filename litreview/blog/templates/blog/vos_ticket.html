@@ -1,0 +1,28 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/blog/flux.css' %}">
+{% if not empty_contenue %}
+    {% for ticket in tickets %}
+
+    <div id="tickets">
+
+        <p id="publication_de_ticket">{{username}}</p>
+        <br>
+        <p id="heure">{{ticket.time_created}}</p>
+        <br>
+        <p id="book_title">{{ticket.title}}</p>
+        <br>
+        {% if image %}
+            <p id="book_image">Photo non obligatoire</p>
+            <br>
+        {% endif %}
+        {% if ticket.description %}
+            <p id="description">{{ticket.description}}</p>
+        {% endif %}
+
+        <button id="bouton_supprimer" onclick="window.location.href = '/supprimer-ticket/{{ticket.id}}'";>Supprimer</button>
+        <button id="bouton_modifier" onclick="window.location.href = '/modifier-ticket/{{ticket.id}}'";>Modifier</button>
+
+    </div>
+
+    {% endfor %}
+{% endif %}

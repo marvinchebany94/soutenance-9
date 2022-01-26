@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Page d'inscription</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/blog/inscription.css' %}">
+  <script src=""></script>
+</head>
+<body>
+    <div id="title">
+        <h1>LITReview</h1>
+    </div>
+
+    <form id="formulaire_inscription" action="" method="post">
+
+        {% csrf_token %}
+        {% for input in form %}
+            {{ input }}
+            <br>
+        {% endfor %}
+
+        <input type="submit" value="S'inscire">
+    </form>
+    <br>
+    <div id="bouton_retourner">
+        <button onclick="window.location.href = '/index'";>Retourner</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+#tickets, #review {
+    border-color: black;
+    border-style: solid;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 10px;
+}
+button {
+    text-align: center;
+}
+
+input[type="text"]  {
+    width: 500px;
+    height: 25px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}

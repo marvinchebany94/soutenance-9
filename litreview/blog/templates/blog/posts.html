@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Vos posts</title>
+    {% block header %}
+    {% include 'blog/barre_de_navigation.html' %}
+    {% endblock %}
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+    <h1>Vos posts</h1>
+<div id="visualisation_des_critique">
+    <p id="phrase_de_publication_de_critique">Vous avez publié une critique</p>
+    <p id="heure">13:14, 28 août 2020</p>
+    <p id="commentaire">Une excellente lecture et je vous recommande vivement</p>
+
+    <div id="ticket">
+        <p id="tickets_pseudo">Ticket - Jean_5679</p>
+        <p id="books_name">The origin of species - Charles Darwin</p>
+        <p id="books_image">Image à ajouter ici</p>
+
+    </div>
+
+    <button id="bouton_modifier">Modifier</button>
+    <button id="bouton_supprimer">Supprimer</button>
+
+</div>
+
+<div id="own_ticket_critique"></div>
+
+    <p id="phrase_de_publication_de_critique">Vous avez publié une critique</p>
+    <p id="heure">13:14, 28 août 2020</p>
+    <p id="critique">Exceptionnal - (les etoiles)</p>
+    
+    <div id="ticket">
+        <p id="tickets_pseudo">Ticket - Vous</p> 
+        <p id="books_name">La relativité - Albert Eistein</p>
+        <p id="books_image">Image à ajouter ici</p>
+    </div>
+
+    <button id="bouton_modifier">Modifier</button>
+    <button id="bouton_supprimer">Supprimer</button>
+
+</div>   
+
+<div id="own-ticket">
+    <p id="phrase_de_publication_de_critique">Vous avez publié un ticket</p>
+    <p id="heure">13:14, 28 août 2020</p>
+    <p id="books_name">La relativité - Albert Eistein</p>
+    <p id="books_image">Image à ajouter ici</p>
+
+    <br>
+    <button id="bouton_modifier">Modifier</button>
+    <button id="bouton_supprimer">Supprimer</button>
+    
+</div>
+</body>
+</html>
