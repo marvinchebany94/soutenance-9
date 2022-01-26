@@ -25,7 +25,9 @@ urlpatterns = [
     path('creer-une-reponse/', views.page_creation_critique_reponse_a_un_ticket),
     path('creer-un-ticket', views.page_creation_ticket),
     path('posts/', views.page_posts),
-    path('vos-posts', views.page_vos_posts),
-    path('modifier-ticket', views.page_modification_ticket),
+    path('vos-posts/', views.page_vos_posts),
+    path('modifier-ticket/<id>/', views.page_modification_ticket),
+    path('supprimer-ticket/<ticket_id>/', views.page_supprimer_ticket),
+    path('creer-ticket-et-critique/', views.page_creation_ticket_critique),
     path('deconnexion/', views.logout_view)
 ]
