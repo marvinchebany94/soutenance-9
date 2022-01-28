@@ -1,0 +1,79 @@
+{% load static %}
+  <link rel="stylesheet" href="{% static '/blog/flux.css' %}">
+
+{% for ticket in tickets %}
+    <div id="tickets">
+    {% if ticket.user_id == user_id %}
+        <p class="demande_de_critique">Vous avez publié une critique</p>
+        <br>
+        {% else %}
+        <p>{{ ticket.user.username }} a demandé une critique</p>
+        <br>
+        {% endif %}
+        <p class="heure">{{ticket.time_created}}</p>
+        <br>
+        <p id="book_title">{{ticket.title}}</p>
+        <br>
+        <p id="description">{{ticket.description}}</p>
+        <br>
+        <button class="bouton_creer_critique" onclick="window.location.href = '{% url 'creer-une-critique' ticket.id %}'";>Créer une critique</button>
+    </div>
+{% endfor %}
+
+{% if ticket %}
+    <div id="tickets">
+    {% if ticket.user_id == user_id %}
+        <p id="demande_de_critique">Vous avez publié une critique</p>
+        <br>
+        {% else %}
+        <p>{{ ticket.user.username }} a demandé une critique</p>
+        <br>
+        {% endif %}
+        <p class="heure">{{ticket.time_created}}</p>
+        <br>
+        <p id="book_title">{{ticket.title}}</p>
+        <br>
+        <p id="book_image"></p>
+        <br>
+    </div>
+{% endif %}
+
+{% for c in contenue %}
+    {% if c.headline %}
+    <div id="tickets">
+        {% if c.user_associe_id == user_id %}
+        <p class="demande_de_critique">Vous avez publié une critique</p>
+        <br>
+        {% else %}
+        <p>{{ c.user_associe.username }} a publié une critique</p>
+        <br>
+        {% endif %}
+        <p class="heure">{{c.time_created}}</p>
+        <br>
+        <p id="book_title">{{c.headline}}</p>
+        <br>
+        <p id="description">{{c.body}}</p>
+        <br>
+    </div>
+
+    {% else %}
+    <div id="tickets">
+        {% if c.user_id == user_id %}
+        <p id="demande_de_critique">Vous avez publié un ticket</p>
+        <br>
+        {% else %}
+        <p>{{ c.user.username }} a publié un ticket</p>
+        <br>
+        {% endif %}
+        <p class="heure">{{c.time_created}}</p>
+        <br>
+        <p id="book_title">{{c.title}}</p>
+        <br>
+        <p id="description">{{c.description}}</p>
+        <br>
+        <p id="book_image"></p>
+        <br>
+        <button class="bouton_creer_critique" onclick="window.location.href = '{% url 'creer-une-critique' c.id %}'";>Créer une critique</button>
+    </div>
+    {% endif %}
+{% endfor %}
