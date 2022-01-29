@@ -1,0 +1,7 @@
+<div id="abonnement">
+    <h2>Abonnements</h2>
+    {% for abonnement in liste_abonnement %}
+        <p id="followed_peoples_pseudo">{{abonnement.username}}</p>
+        <button id="bouton_desabonner">Désabonner</button>
+    {% endfor %}
+</div>

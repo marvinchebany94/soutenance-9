@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Page d'accueil</title>
+    {% load static %}
+  <link rel="stylesheet" href="{% static '/blog/style.css' %}">
+  <script src="script.js"></script>
+</head>
+<body>
+    <div id="title">
+        <h1>LITReview</h1>
+    </div>
+    
+    <div id="inscription">
+        <h2>Inscrivez-vous maintenant</h2>
+        <button id="bouton_inscription" onclick="window.location.href = '/inscription/'";>S'inscrire</button>
+    </div>
+
+    <div id="connexion">
+        <h2>Connectez-vous</h2>
+        <form id="form_connexion" action="" method="post">
+
+            {% csrf_token %}
+            {% for input in form %}
+                {{ input }}
+                <br>
+            {% endfor %}
+            {% if error %}
+                <p id="message_erreur">Utilisateur/pseudo incorrect.</p>
+            {% endif %}
+            <input type="submit" value="Se connecter">
+
+        </form>
+    </div>
+</body>
+</html>

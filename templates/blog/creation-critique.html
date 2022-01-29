@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Page de flux</title>
+    {% block header %}
+    {% include 'blog/barre_de_navigation.html' %}
+    {% endblock %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'blog/creation_critique.css' %}">
+</head>
+<body>
+{% if ticket_doesnt_exist %}
+<h2>Le ticket n'existe pas.</h2>
+{% else %}
+<div id="reponse_critique">
+
+  <h2>Vous êtes en train de poster en réponse à</h2>
+  {% block content %}
+  {% include 'blog/tickets.html' %}
+  {% endblock %}
+</div>
+
+<div id="critique_div">
+  <form id="critique_form" method="post" action="">
+      {% csrf_token %}
+    <h2>Critique</h2>
+    <h2>{{ form.titre.label_tag}}</h2>
+    {{form.titre}}
+    <br>
+    <h2>{{ form.commentaire.label_tag}}</h2>
+    {{form.commentaire}}
+
+    <h2>Note</h2>
+        <input type="checkbox" id="0" name="checkbox" value="0" readonly="readonly"> - 0
+        <input type="checkbox" id="1" name="checkbox" value="1" readonly="readonly"> - 1
+        <input type="checkbox" id="2" name="checkbox" value="2" readonly="readonly"> - 2
+        <input type="checkbox" id="3" name="checkbox" value="3" readonly="readonly"> - 3
+        <input type="checkbox" id="4" name="checkbox" value="4" readonly="readonly"> - 4
+        <input type="checkbox" id="5" name="checkbox" value="5" readonly="readonly"> - 5
+    <br>
+    <input id="bouton_envoyer" type="submit" value="envoyer">
+  </form>
+</div>
+{% endif %}
+</body>
+</html>
