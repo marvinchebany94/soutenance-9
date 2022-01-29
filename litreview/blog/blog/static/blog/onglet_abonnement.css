@@ -1,0 +1,30 @@
+input[type="text"]  {
+    width: 500px;
+    height: 25px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+form {
+    text-align: center;
+}
+#abonnement, #abonnes {
+    text-align: center;
+}
+table.center {
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+td {
+    width: 250px;
+    height: 25px;
+}
+
+td.td_abonnes {
+    width: 500px;
+    height: 25px;
+}
+
+
+

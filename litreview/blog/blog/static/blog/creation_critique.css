@@ -1,15 +1,15 @@
-#tickets, #review, #reponse_critique, #critique_div {
+##reponse_critique, #critique_div {
     border-color: black;
     border-style: solid;
     margin-left: 200px;
     margin-right: 200px;
     margin-bottom: 10px;
 }
-button, h1 {
+button {
     text-align: center;
 }
 
-input[type="text"]  {
+input[type="text"] {
     width: 500px;
     height: 25px;
     margin-bottom: 15px;
@@ -24,7 +24,7 @@ input[type="text"]  {
       font-size: small;
 }
 
-button {
+#bouton_envoyer {
     text-align: center;
     position: relative;
     float: right;
@@ -34,10 +34,14 @@ button {
     height: 40px;
 }
 
-.ticket_on_our_flux_page, .ticket_review_miniature {
-    border-color: black;
-    border-style: solid;
-    margin-left: 150px;
-    margin-right: 150px;
-    margin-bottom: 60px;
+h2 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+#id_commentaire {
+    width: 500px;
 }
