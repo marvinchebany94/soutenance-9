@@ -21,13 +21,16 @@ urlpatterns = [
     path('inscription/', views.page_inscription),
     path('flux/', views.page_flux),
     path('abonnement/', views.page_onglet_abonnement),
-    path('creer-une-critique/', views.page_creation_critique),
-    path('creer-une-reponse/', views.page_creation_critique_reponse_a_un_ticket),
+    path('creer-une-critique/', views.page_creation_ticket),
+    path('creer-une-critique/<ticket_id>/', views.page_creation_critique_reponse_a_un_ticket,
+         name="creer-une-critique"),
     path('creer-un-ticket', views.page_creation_ticket),
-    path('posts/', views.page_posts),
     path('vos-posts/', views.page_vos_posts),
     path('modifier-ticket/<id>/', views.page_modification_ticket),
     path('supprimer-ticket/<ticket_id>/', views.page_supprimer_ticket),
     path('creer-ticket-et-critique/', views.page_creation_ticket_critique),
-    path('deconnexion/', views.logout_view)
+    path('deconnexion/', views.logout_view),
+    path('test/', views.page_test),
+    path('flux_test/', views.page_vos_flux_text),
+    path('supprimer-review/<review_id>/', views.page_supprimer_review)
 ]
