@@ -1,0 +1,119 @@
+{% load static %}
+  <link rel="stylesheet" href="{% static '/blog/flux.css' %}">
+<meta charset="utf-8">
+
+{% for q in tickets_reviews %}
+    {% if q.headline %}
+        <div id="review">
+            {% if user_id == q.user_associe_id %}
+            <p class="demande_de_critique">Vous avez publié une critique</p>
+            <br>
+            {% else %}
+            <p>{{q.user_associe.username}} a publié une critique</p>
+            <br>
+            {% endif %}
+            <p class="heure">{{q.time_created}}</p>
+            <br>
+            {% if q.rating == 0 %}
+            <p id="book_title">{{q.headline}} - ☆☆☆☆☆</p>
+            {% endif %}
+            {% if q.rating == 1 %}
+            <p id="book_title">{{q.headline}} - ★☆☆☆☆</p>
+            {% endif %}
+            <br>
+            {% if q.rating == 2 %}
+            <p id="book_title">{{q.headline}} - ★★☆☆☆</p>
+            {% endif %}
+            {% if q.rating == 3 %}
+            <p id="book_title">{{q.headline}} - ★★★☆☆</p>
+            {% endif %}
+            {% if q.rating == 4 %}
+            <p id="book_title">{{q.headline}} - ★★★★☆</p>
+            {% endif %}
+            {% if q.rating == 5 %}
+            <p id="book_title">{{q.headline}} - ★★★★★</p>
+            {% endif %}
+            <p id="description">{{q.body}}</p>
+            <br>
+            {% for ticket in tickets %}
+                {% if ticket.id == q.ticket_associe_id %}
+                    <div class="ticket_review_miniature">
+                        {% if user_id == liste_infos.5 %}
+                        <p class="demande_de_critique">Vous avez publié une critique</p>
+                        <br>
+                        {% else %}
+                        <p>{{ticket.user.username}} a demandé une critique</p>
+                        <br>
+                        {% endif %}
+                        <p class="heure">{{ticket.time_created}}</p>
+                        <br>
+                        <p id="book_title">{{ticket.title}}</p>
+                        <br>
+                        <p id="description">{{ticket.description}}</p>
+                        <br>
+                        {% if q.ticket_associe_id not in tickets_already_commented %}
+                            <button class="bouton_creer_critique" onclick="window.location.href = '{% url 'creer-une-critique' ticket.id %}'";>Créer une critique</button>
+                        {% endif %}
+                    </div>
+        </div>
+                {% endif %}
+            {% endfor %}
+    {% else %}
+        <div id="tickets">
+            {% if user_id == q.user_id %}
+                <p class="demande_de_critique">Vous avez demandé une critique</p>
+                <br>
+                {% else %}
+                <p>{{q.user.username}} a demandé une critique</p>
+                <br>
+                {% endif %}
+                <p class="heure">{{q.time_created}}</p>
+                <br>
+                <p id="book_title">{{q.title}}</p>
+                <br>
+                <p id="description">{{q.description}}</p>
+                <br>
+                {% if q.id not in tickets_already_commented %}
+                    <button class="bouton_creer_critique" onclick="window.location.href = '{% url 'creer-une-critique' q.id %}'";>Créer une critique</button>
+                {% endif %}
+
+                {% for review in reviews  %}
+                    {% if review.ticket_associe_id == q.id %}
+                         <div class="ticket_review_miniature">
+                            {% if user_id == review.user_associe_id %}
+                            <p class="demande_de_critique">Vous avez publié une critique</p>
+                            <br>
+                            {% else %}
+                            <p>{{review.user_associe.username}} a publié une critique</p>
+                            <br>
+                            {% endif %}
+                            <p class="heure">{{review.time_created}}</p>
+                            <br>
+                             {% if review.rating == 0 %}
+                            <p id="book_title">{{review.headline}} - ☆☆☆☆☆</p>
+                             {% endif %}
+                            {% if q.rating == 1 %}
+                            <p id="book_title">{{review.headline}} - ★☆☆☆☆</p>
+                             {% endif %}
+                            <br>
+                            {% if q.rating == 2 %}
+                            <p id="book_title">{{review.headline}} - ★★☆☆☆</p>
+                             {% endif %}
+                            {% if q.rating == 3 %}
+                            <p id="book_title">{{review.headline}} - ★★★☆☆</p>
+                             {% endif %}
+                            {% if q.rating == 4 %}
+                            <p id="book_title">{{review.headline}} - ★★★★☆</p>
+                             {% endif %}
+                            {% if q.rating == 5 %}
+                            <p id="book_title">{{review.headline}} - ★★★★★</p>
+                            {% endif %}
+                            <br>
+                            <p id="description">{{review.body}}</p>
+                            <br>
+                         </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+    {% endif %}
+{% endfor %}

@@ -1,0 +1,62 @@
+{% load static %}
+  <link rel="stylesheet" href="{% static '/blog/flux.css' %}">
+
+{% if not tickets_reviews %}
+<h1>Tu n'as toujours pas créé de ticket ou de critique.</h1>
+{% endif %}
+
+{% for q in tickets_reviews %}
+    {% if q.headline %}
+        <div id="review">
+            {% if user_id == q.user_associe_id %}
+            <p class="demande_de_critique">Vous avez publié une critique</p>
+            <br>
+            {% else %}
+            <p>{{q.user_associe.username}} a publié une critique</p>
+            <br>
+            {% endif %}
+            <p class="heure">{{q.time_created}}</p>
+            <br>
+            <p id="book_title">{{q.headline}}</p>
+            <br>
+            <p id="description">{{q.body}}</p>
+            <br>
+            {% for ticket in tickets_associated_to_reviews %}
+                {% if ticket.id == q.ticket_associe_id %}
+                    <div class="ticket_on_our_flux_page">
+                        {% if user_id == liste_infos.5 %}
+                        <p class="demande_de_critique">Vous avez publié une critique</p>
+                        <br>
+                        {% else %}
+                        <p>{{ticket.user.username}} a demandé une critique</p>
+                        <br>
+                        {% endif %}
+                        <p class="heure">{{ticket.time_created}}</p>
+                        <br>
+                        <p id="book_title">{{ticket.title}}</p>
+                        <br>
+                        <p id="description">{{ticket.description}}</p>
+                        <br>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <div id="bouton_div">
+                <button class="bouton_supprimer" onclick="window.location.href = '/supprimer-ticket/{{q.ticket_associe_id}}'";>Supprimer</button>
+            <button class="bouton_modifier" onclick="window.location.href = '/modifier-ticket/{{q.ticket_associe_id}}'";>Modifier</button>
+            </div>
+        </div>
+    {% else %}
+        <div id="tickets">
+            <p class="demande_de_critique">Vous avez demandé une critique</p>
+            <br>
+            <p class="heure">{{q.time_created}}</p>
+            <br>
+            <p id="book_title">{{q.title}}</p>
+            <br>
+            <p id="description">{{q.description}}</p>
+            <br>
+            <button class="bouton_supprimer" onclick="window.location.href = '/supprimer-ticket/{{q.id}}'";>Supprimer</button>
+        <button class="bouton_modifier" onclick="window.location.href = '/modifier-ticket/{{q.id}}'";>Modifier</button>
+        </div>
+    {% endif %}
+{% endfor %}

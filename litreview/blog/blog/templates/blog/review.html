@@ -1,14 +1,17 @@
 {% load static %}
-  <link rel="stylesheet" href="{% static '/blog/flux.css' %}">
+<link rel="stylesheet" href="{% static '/blog/flux.css' %}">
 <div id="review">
-    <p id="publication_de_review">marvin94 a posté une review</p>
-    <br>
-    <p id="heure">20h15, 20 juillet 2022</p>
-    <br>
-    <p id="title_review_and_note">Excellent - * * * * *</p>
-    <br>
-    (Mettre le ticket ici grâce à la commande include)
-    {% block content %}
-    {% include 'blog/tickets.html' %}
-    {% endblock %}
+        {% if user_id == review.user_associe_id %}
+        <p class="demande_de_critique">Vous avez publié une critique</p>
+        <br>
+        {% else %}
+        <p>{{review.user_associe.username}} a publié une critique</p>
+        <br>
+        {% endif %}
+        <p class="heure">{{review.time_created}}</p>
+        <br>
+        <p id="book_title">{{review.headline}}</p>
+        <br>
+        <p id="description">{{review.body}}</p>
+        <br>
 </div>

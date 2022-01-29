@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Page de flux</title>
+    {% block header %}
+    {% include 'blog/barre_de_navigation.html' %}
+    {% endblock %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'blog/flux.css' %}">
+
+</head>
+<body>
+{% if not_your_ticket %}
+    <h1>Le ticket n'est pas à vous</h1>
+{% else %}
+    <div id="ticket_a_supprimer"></div>
+        <form method="post" action="" style="text-align: center">
+            {% csrf_token %}
+            <h2>Title : {{ticket.title}}</h2>
+            <h2>Description : {{ticket.description}}</h2>
+            <h3>Voulez-vous supprimer votre ticket ?</h3>
+            <input type="submit" value="oui" name="submit">
+            <input type="submit" value="non" name="submit">
+        </form>
+{% endif %}
+{% if ticket_no_deleted %}
+    <h2>Votre ticket n'est pas supprimé.</h2>
+{% endif %}
+</body>
+</html>

@@ -7,22 +7,16 @@
     {% include 'blog/barre_de_navigation.html' %}
     {% endblock %}
     {% load static %}
-  <link rel="stylesheet" href="{% static '/blog/vos_posts.css' %}">
+  <link rel="stylesheet" href="{% static '/blog/flux.css' %}">
   <script src="script.js"></script>
 </head>
 <body>
-<div id="votre_critique">
-    {% block content %}
-    {% include 'blog/vos_reviews.html' %}
-    {% endblock %}
-    <form>
-        <input type="button" id="bouton_modifier" value="Modifier">
-        <input type="button" id="bouton_supprimer" value="Supprimer">
-    </form>
-    <button id="bouton_modifier">Modifier</button>
-    <button id="bouton_supprimer">Supprimer</button>
-</div>
 
+<div id="votre_ticket">
+    {% block my_ticket %}
+    {% include 'blog/posts_test.html' %}
+    {% endblock %}
+</div>
 
 </body>
 </html>

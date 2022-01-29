@@ -1,13 +1,78 @@
 {% load static %}
   <link rel="stylesheet" href="{% static '/blog/flux.css' %}">
-<div id="tickets">
-    <p id="demande_de_critique">marvin94 a demandé une critique</p>
-    <br>
-    <p id="heure">20h15, 20 juillet 2022</p>
-    <br>
-    <p id="book_title">The origin of species - Charles Darwin</p>
-    <br>
-    <p id="book_image">Photo non obligatoire</p>
-    <br>
-    <button id="Créer une critique" onclick="window.location.href = '/creer-une-reponse'";>Créer une critique</button>
-</div>
+
+{% for liste_infos in contenue_associe %}
+    {% if liste_infos|length == 7 %}
+        <div id="tickets">
+            {% if user_id == liste_infos.0 %}
+                <p class="demande_de_critique">Vous avez demandé une critique</p>
+                <br>
+                {% else %}
+                <p>{{liste_infos.1}} a demandé une critique</p>
+                <br>
+                {% endif %}
+                <p class="heure">{{liste_infos.2}}</p>
+                <br>
+                <p id="book_title">{{liste_infos.3}}</p>
+                <br>
+                <p id="description">{{liste_infos.4}}</p>
+                <br>
+                {% if not liste_infos.6  %}
+                    <button class="bouton_creer_critique" onclick="window.location.href = '{% url 'creer-une-critique' liste_infos.5 %}'";>Créer une critique</button>
+                {% endif %}
+            </div>
+
+    {% else %}
+        <div id="review">
+            {% if user_id == liste_infos.0 %}
+            <p class="demande_de_critique">Vous avez publié une critique</p>
+            <br>
+            {% else %}
+            <p>{{liste_infos.1}} a publié une critique</p>
+            <br>
+            {% endif %}
+            <p class="heure">{{liste_infos.2}}</p>
+            <br>
+            <p id="book_title">{{liste_infos.3}}</p>
+            <br>
+            <p id="description">{{liste_infos.4}}</p>
+            <br>
+            <div id="tickets">
+            {% if user_id == liste_infos.5 %}
+                <p class="demande_de_critique">Vous avez publié une critique</p>
+                <br>
+                {% else %}
+                <p>{{liste_infos.6}} a demandé une critique</p>
+                <br>
+                {% endif %}
+                <p class="heure">{{liste_infos.7}}</p>
+                <br>
+                <p id="book_title">{{liste_infos.8}}</p>
+                <br>
+                <p id="description">{{liste_infos.9}}</p>
+                <br>
+                {% if not liste_infos.11 %}
+                    <button class="bouton_creer_critique" onclick="window.location.href = '{% url 'creer-une-critique' liste_infos.10 %}'";>Créer une critique</button>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+{% if ticket %}
+    <div id="tickets">
+    {% if ticket.user_id == user_id %}
+        <p id="demande_de_critique">Vous avez publié une critique</p>
+        <br>
+        {% else %}
+        <p>{{ ticket.user.username }} a demandé une critique</p>
+        <br>
+        {% endif %}
+        <p class="heure">{{ticket.time_created}}</p>
+        <br>
+        <p id="book_title">{{ticket.title}}</p>
+        <br>
+        <p id="book_image"></p>
+        <br>
+    </div>
+{% endif %}

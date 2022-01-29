@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Page de flux</title>
+    {% block header %}
+    {% include 'blog/barre_de_navigation.html' %}
+    {% endblock %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'blog/flux.css' %}">
+
+</head>
+<body>
+{% if not_your_review %}
+    <h1>La review n'est pas à vous</h1>
+{% else %}
+    <div id="review_a_supprimer"></div>
+        <form method="post" action="" style="text-align: center">
+            {% csrf_token %}
+            <h2>Title : {{review.headline}}</h2>
+            <h2>Description : {{review.body}}</h2>
+            <h2>Note : {{review.rating}}</h2>
+            <h3>Voulez-vous supprimer votre review ?</h3>
+            <input type="submit" value="oui" name="submit">
+            <input type="submit" value="non" name="submit">
+        </form>
+{% endif %}
+{% if review_no_deleted %}
+    <h2>Votre ticket n'est pas supprimé.</h2>
+{% endif %}
+</body>
+</html>
