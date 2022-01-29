@@ -7,6 +7,9 @@ from django.forms.widgets import EmailInput, TextInput
 
 
 class User(models.Model):
+    """
+    se renseigner sur : AbstractUser
+    """
     username = models.CharField(max_length=150, unique=True)
     password = models.CharField(max_length=100)
     email = models.EmailField(max_length=254)
@@ -57,14 +60,14 @@ class Ticket(models.Model):
 
 
 class Review(models.Model):
-    ticket = models.ForeignKey(to=Ticket, on_delete=models.CASCADE)
+    ticket_associe = models.ForeignKey(to=Ticket, on_delete=models.CASCADE, null=True, blank=True)
     rating = models.PositiveSmallIntegerField(
         # validates that rating must be between 0 and 5
         validators=[MinValueValidator(0), MaxValueValidator(5)])
     headline = models.CharField(max_length=128)
     body = models.CharField(max_length=8192, blank=True)
-    user = models.ForeignKey(
-        to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user_associe = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True, blank=True)
     time_created = models.DateTimeField(auto_now_add=True)
 
 
@@ -72,6 +75,13 @@ class UserFollows(models.Model):
     # Your UserFollows model definition goes here
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='following')
     followed_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="followed_by")
+
+    def RelationAlreadyExists(self, user_id, followed_user_id):
+        try:
+            UserFollows.objects.get(user=user_id, followed_user=followed_user_id)
+            return True
+        except ObjectDoesNotExist:
+            return False
 
     class Meta:
         # ensures we don't get multiple UserFollows instances
@@ -106,3 +116,32 @@ class TicketForm(forms.Form):
     image = models.ImageField(blank=True)
 
 
+class TicketModifForm(forms.Form):
+    title = forms.CharField(max_length=128, label='titre', required=False,
+                            widget=forms.TextInput(attrs={'value': ''}))
+    description = forms.CharField(max_length=2048, label='description', required=False,
+                                  widget=forms.TextInput(attrs={'value': ''}))
+
+
+class CritiqueTicketForm(forms.Form):
+    title = forms.CharField(max_length=128, required=True, label='Titre')
+    description = forms.CharField(max_length=2048, label='Description',
+                                  widget=forms.TextInput(), required=False)
+    image = models.ImageField(blank=True)
+    headline = forms.CharField(max_length=128, label='Titre', required=True,
+                               widget=forms.TextInput())
+    body = forms.CharField(max_length=8192, label='Commentaire', required=True,
+                           widget=forms.TextInput())
+
+
+class AddUser(forms.Form):
+    UserResearch = forms.CharField(label="Suivre d'autres utilisateurs", required=True,
+                                   widget=forms.TextInput(
+                                       attrs={'placeholder': "Nom d'utilisateur"}))
+
+
+class CritiqueForm(forms.Form):
+    titre = forms.CharField(max_length=128, label='Titre', required=True,
+                            widget=forms.TextInput())
+    commentaire = forms.CharField(max_length=8192, label='Commentaire', required=True,
+                                  widget=forms.Textarea(attrs={'cols': 50, 'rows': 5}))
