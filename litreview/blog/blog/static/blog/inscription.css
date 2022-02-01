@@ -5,6 +5,7 @@
     margin-right: 200px;
     text-align: center;
     margin-bottom: 10px;
+    min-width: 1000px;
 }
 
 #form_connexion {
@@ -12,13 +13,26 @@
 }
 
 
-#formulaire_inscription, #bouton_retourner {
+#formulaire_inscription {
     text-align: center;
+    border-color: black;
+    border-style: solid;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 200px;
+    margin-right: 200px;
+    overflow: hidden;
+    min-width: 1000px;
 }
 
-input[type="text"], input[type="email"]  {
+input[type="text"], input[type="email"], #id_password, #id_password2  {
     width: 500px;
     height: 25px;
     margin-bottom: 25px;
 }
 
+button, input[type="submit"] {
+    width: 200px;
+    height: 40px;
+    margin-bottom: 10px;
+}

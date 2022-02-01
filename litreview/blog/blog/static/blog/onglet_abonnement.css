@@ -5,15 +5,28 @@ input[type="text"]  {
     overflow: hidden;
 }
 
-form {
+.form1 {
     text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    min-width: 1000px;
 }
+
+.form2 {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 #abonnement, #abonnes {
     text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    min-width: 1000px;
 }
 table.center {
-    margin-left:auto;
     margin-right:auto;
+    margin-left: auto;
   }
 
 td {

@@ -1,10 +1,23 @@
-##reponse_critique, #critique_div {
+#reponse_critique, #critique_div {
     border-color: black;
     border-style: solid;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 10px;
+    min-width: 1000px;
+    width: 500px
 }
+
+#tickets {
+    border-color: black;
+    border-style: solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    min-width: 1000px;
+    width: 400px
+}
+
 button {
     text-align: center;
 }

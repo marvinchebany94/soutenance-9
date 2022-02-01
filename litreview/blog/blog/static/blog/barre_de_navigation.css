@@ -1,20 +1,28 @@
-#header {
-    display: flex;
-
-}
-
-#nom_du_site {
+#title {
     text-align: center;
-}
-
-
-#liens_navigations {
-    right: 25px;
+    font-size: revert;
+    margin-right: auto;
+    margin-left: auto;
+    min-width: 1000px;
 }
 
 li {
     display: inline;
     font-size: large;
+
+    }
+a:hover {
+    background-color: gold;
+}
+a:link {
+    text-decoration:none
+}
+
+#liens {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    min-width: 1000px;
 }
 
 

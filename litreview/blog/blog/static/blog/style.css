@@ -31,7 +31,7 @@ h1 {
     overflow: hidden;
 }
 
-input[type="text"]  {
+input[type="text"], #id_password  {
     width: 500px;
     height: 25px;
     margin-bottom: 15px;
@@ -53,4 +53,9 @@ h2 {
     margin-left: 200px;
     margin-right: 200px;
     overflow: hidden;
+}
+
+button, input[type="submit"] {
+    width: 200px;
+    height: 40px;
 }
