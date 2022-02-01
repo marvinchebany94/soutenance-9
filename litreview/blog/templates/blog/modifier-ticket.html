@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Abonnement</title>
+    {% block header %}
+    {% include 'blog/barre_de_navigation.html' %}
+    {% endblock %}
+    {% load static %}
+  <link rel="stylesheet" href="{% static '/blog/style.css' %}">
+  <script src="script.js"></script>
+</head>
+<body>
+<div id="formulaire_modif_ticket">
+
+    <h2>Modifier votre ticket</h2>
+
+    <form id="form_modif_ticket" method="post" action="">
+        {% csrf_token %}
+
+        {{ form.title.label_tag }}
+        <br>
+        <p>Titre actuel : {{ ticket.title }}</p>
+        {{ form.title }}
+        <br>
+        {{ form.description.label_tag }}
+        <br>
+        {% if not ticket.description %}
+            <p>Aucune description.</p>
+        {% else %}
+            <p>Description actuelle : {{ ticket.description }}</p>
+        {% endif %}
+        {{ form.description }}
+        <br>
+        <input type="file" id="file">
+        <br>
+        <input type="submit" id="bouton_envoyer" value="Envoyer">
+        {% if champ_vide %}
+            <p>Le/les champs n'ont pas été rempli correctement.</p>
+        {% endif %}
+        {% if title_already_exists %}
+        <p>Le ticket que tu veux créer existe déjà.</p>
+        {% endif %}
+    </form>
+</div>
+</body>
+</html>

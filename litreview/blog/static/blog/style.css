@@ -1,0 +1,61 @@
+#title  {
+    border-color: black;
+    border-style: solid;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom:25px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#inscription {
+    
+    border-color: black;
+    border-style: solid;
+    margin: auto;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom:25px;
+}
+
+#connexion {
+    border-color: black;
+    border-style: solid;
+    margin: auto;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    overflow: hidden;
+}
+
+input[type="text"], #id_password  {
+    width: 500px;
+    height: 25px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+#message_erreur {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+
+#form_modif_ticket {
+    border-color: black;
+    border-style: solid;
+    margin: auto;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    overflow: hidden;
+}
+
+button, input[type="submit"] {
+    width: 200px;
+    height: 40px;
+}

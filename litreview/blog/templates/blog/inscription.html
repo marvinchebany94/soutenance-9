@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Page d'inscription</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/blog/inscription.css' %}">
+  <script src=""></script>
+</head>
+<body>
+    <div id="title">
+        <h1>LITReview</h1>
+    </div>
+
+    <form id="formulaire_inscription" action="" method="post">
+
+        {% csrf_token %}
+        {% for input in form %}
+            {{ input }}
+            <br>
+        {% endfor %}
+        <input type="submit" value="S'inscire">
+        {% if not_unique_username %}
+            <h2>Le pseudo existe déjà dans le base de données.</h2>
+        {% endif %}
+        {% if not_unique_email %}
+            <h2>L'email existe déjà dans le base de données.</h2>
+        {% endif %}
+        {% if passwd_error %}
+            <h2>Les mots de passes ne correspondent pas.</h2>
+        {% endif %}
+        <br>
+         <div id="bouton_retourner">
+             <button onclick="window.location.href = '/index'";>Retourner</button>
+        </div>
+    </form>
+    <br>
+
+
+</body>
+</html>

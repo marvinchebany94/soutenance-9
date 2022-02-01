@@ -1,0 +1,60 @@
+#reponse_critique, #critique_div {
+    border-color: black;
+    border-style: solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    min-width: 1000px;
+    width: 500px
+}
+
+#tickets {
+    border-color: black;
+    border-style: solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    min-width: 1000px;
+    width: 400px
+}
+
+button {
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 500px;
+    height: 25px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.heure {
+      position: relative;
+      float: right;
+      top: -50px;
+      right: 30px;
+      font-size: small;
+}
+
+#bouton_envoyer {
+    text-align: center;
+    position: relative;
+    float: right;
+    bottom: 50px;
+    right: 30px;
+    width: 200px;
+    height: 40px;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+#id_commentaire {
+    width: 500px;
+}

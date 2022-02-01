@@ -1,0 +1,17 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/blog/flux.css' %}">
+<div id="review">
+        {% if user_id == review.user_associe_id %}
+        <p class="demande_de_critique">Vous avez publié une critique</p>
+        <br>
+        {% else %}
+        <p>{{review.user_associe.username}} a publié une critique</p>
+        <br>
+        {% endif %}
+        <p class="heure">{{review.time_created}}</p>
+        <br>
+        <p id="book_title">{{review.headline}}</p>
+        <br>
+        <p id="description">{{review.body}}</p>
+        <br>
+</div>

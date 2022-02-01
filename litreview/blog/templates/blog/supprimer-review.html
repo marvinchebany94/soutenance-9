@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Page de flux</title>
+    {% block header %}
+    {% include 'blog/barre_de_navigation.html' %}
+    {% endblock %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'blog/flux.css' %}">
+
+</head>
+<body>
+{% if review %}
+<div id="review_a_supprimer"></div>
+        <form method="post" action="" style="text-align: center">
+            {% csrf_token %}
+            <h2>Title : {{review.headline}}</h2>
+            <h2>Description : {{review.body}}</h2>
+            <h2>Note : {{review.rating}}</h2>
+            <h3>Voulez-vous supprimer votre review ?</h3>
+            <input type="submit" value="oui" name="submit">
+            <input type="submit" value="non" name="submit">
+        </form>
+{% endif %}
+{% if review_not_deleted %}
+    <h2>La review n'a pas été supprimée.</h2>
+{% endif %}
+{% if review_deleted %}
+    <h2>La review a bien été supprimée</h2>
+{% endif %}
+
+</body>
+</html>
