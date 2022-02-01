@@ -52,7 +52,7 @@
                 <p id="description">{{liste_infos.9}}</p>
                 <br>
                 {% if not liste_infos.11 %}
-                    <button class="bouton_creer_critique" onclick="window.location.href = '{% url 'creer-une-critique' liste_infos.10 %}'";>Créer une critique</button>
+                    <button class="bouton" onclick="window.location.href = '{% url 'creer-une-critique' liste_infos.10 %}'";>Créer une critique</button>
                 {% endif %}
             </div>
         </div>
@@ -72,6 +72,7 @@
         <br>
         <p id="book_title">{{ticket.title}}</p>
         <br>
+        <p id="book_title">{{ticket.description}}</p>
         <p id="book_image"></p>
         <br>
     </div>

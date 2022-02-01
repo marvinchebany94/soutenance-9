@@ -19,8 +19,10 @@
             <p id="description">{{ticket.description}}</p>
         {% endif %}
         <br>
-        <button class="bouton_supprimer" onclick="window.location.href = '/supprimer-ticket/{{ticket.id}}'";>Supprimer</button>
-        <button class="bouton_modifier" onclick="window.location.href = '/modifier-ticket/{{ticket.id}}'";>Modifier</button>
+        <button class="button"
+                onclick="window.location.href = '/supprimer-ticket/{{ticket.id}}'";>Supprimer</button>
+        <button class="button"
+                onclick="window.location.href = '/modifier-ticket/{{ticket.id}}'";>Modifier</button>
 
     </div>
 

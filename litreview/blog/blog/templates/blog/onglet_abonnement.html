@@ -12,7 +12,7 @@
 </head>
 <body>
 <div id="onglet_abonnement"></div>
-    <form action="" method="post">
+    <form action="" method="post" class="form1">
         {% csrf_token %}
         <h2>{{form.UserResearch.label_tag}}</h2>
         {{form.UserResearch}}
@@ -47,7 +47,7 @@
             <td>{{abonnement.username}}</td>
 
             <td>
-                <form method="post" action="" name="desabonenment_form">
+                <form method="post" action="" name="desabonenment_form" class="form2">
                     {% csrf_token %}
                     <input type="hidden" name="username" value="{{abonnement.username}}">
                     <input type="submit" value="Désabonner">

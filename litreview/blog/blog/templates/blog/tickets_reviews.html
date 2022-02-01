@@ -1,6 +1,25 @@
-{% load static %}
-  <link rel="stylesheet" href="{% static '/blog/flux.css' %}">
-<meta charset="utf-8">
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Page de flux</title>
+    {% block header %}
+    {% include 'blog/barre_de_navigation.html' %}
+    {% endblock %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'blog/flux.css' %}">
+</head>
+<body>
+<br>
+<div id="boutons" style="text-align: center; min-width: 1000px;">
+<button class="bouton" id="demander_une_critique" onclick="window.location.href = '/creer-un-ticket'";>Demander une critique</button>
+    <button class="bouton" id="creer_une_critique" onclick="window.location.href = '/creer-ticket-et-critique'";>Créer une critique</button>
+</div>
+
+{% if not tickets_reviews %}
+    <h2 style="text_align:center; min-width: 1000px; margin-left: auto; margin-right: auto;"
+    >Aucun ticket ou critique n'a été trouvé.</h2>
+{% endif %}
 
 {% for q in tickets_reviews %}
     {% if q.headline %}
@@ -38,7 +57,7 @@
             {% for ticket in tickets %}
                 {% if ticket.id == q.ticket_associe_id %}
                     <div class="ticket_review_miniature">
-                        {% if user_id == liste_infos.5 %}
+                        {% if user_id == ticket.user.id %}
                         <p class="demande_de_critique">Vous avez publié une critique</p>
                         <br>
                         {% else %}
@@ -52,7 +71,7 @@
                         <p id="description">{{ticket.description}}</p>
                         <br>
                         {% if q.ticket_associe_id not in tickets_already_commented %}
-                            <button class="bouton_creer_critique" onclick="window.location.href = '{% url 'creer-une-critique' ticket.id %}'";>Créer une critique</button>
+                            <button class="button" onclick="window.location.href = '{% url 'creer-une-critique' ticket.id %}'";>Créer une critique</button>
                         {% endif %}
                     </div>
         </div>
@@ -74,7 +93,7 @@
                 <p id="description">{{q.description}}</p>
                 <br>
                 {% if q.id not in tickets_already_commented %}
-                    <button class="bouton_creer_critique" onclick="window.location.href = '{% url 'creer-une-critique' q.id %}'";>Créer une critique</button>
+                    <button class="button" onclick="window.location.href = '{% url 'creer-une-critique' q.id %}'";>Créer une critique</button>
                 {% endif %}
 
                 {% for review in reviews  %}
@@ -92,20 +111,20 @@
                              {% if review.rating == 0 %}
                             <p id="book_title">{{review.headline}} - ☆☆☆☆☆</p>
                              {% endif %}
-                            {% if q.rating == 1 %}
+                            {% if review.rating == 1 %}
                             <p id="book_title">{{review.headline}} - ★☆☆☆☆</p>
                              {% endif %}
                             <br>
-                            {% if q.rating == 2 %}
+                            {% if review.rating == 2 %}
                             <p id="book_title">{{review.headline}} - ★★☆☆☆</p>
                              {% endif %}
-                            {% if q.rating == 3 %}
+                            {% if review.rating == 3 %}
                             <p id="book_title">{{review.headline}} - ★★★☆☆</p>
                              {% endif %}
-                            {% if q.rating == 4 %}
+                            {% if review.rating == 4 %}
                             <p id="book_title">{{review.headline}} - ★★★★☆</p>
                              {% endif %}
-                            {% if q.rating == 5 %}
+                            {% if review.rating == 5 %}
                             <p id="book_title">{{review.headline}} - ★★★★★</p>
                             {% endif %}
                             <br>
@@ -117,3 +136,5 @@
             </div>
     {% endif %}
 {% endfor %}
+</body>
+</html>

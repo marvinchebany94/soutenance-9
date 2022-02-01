@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Créer une critique</title>
+    {% block header %}
+    {% include 'blog/barre_de_navigation.html' %}
+    {% endblock %}
+    {% load static %}
+  <link rel="stylesheet" href="{% static 'blog/flux.css' %}">
+</head>
+<body>
+    <h2>Créer une critique</h2>
+<div id="creer_une_critique_livre_article">
+    <h2>Livre / Article</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+        <h2>{{form.title.label_tag}}</h2>
+        {{form.title}}
+        <h2>{{form.description.label_tag}}</h2>
+        {{form.description}}
+        <h2>Image</h2>
+        <button id="bouton_telecharger_fichier">Télécharger fichier</button>
+
+        <div id="creer_une_critique">
+
+            <h2>{{ form.headline.label_tag }}</h2>
+            {{form.headline}}
+
+            <h2>Note</h2>
+            <input type="checkbox" id="0" name="checkbox" value="0" readonly="readonly"> - 0
+            <input type="checkbox" id="1" name="checkbox" value="1" readonly="readonly"> - 1
+            <input type="checkbox" id="2" name="checkbox" value="2" readonly="readonly"> - 2
+            <input type="checkbox" id="3" name="checkbox" value="3" readonly="readonly"> - 3
+            <input type="checkbox" id="4" name="checkbox" value="4" readonly="readonly"> - 4
+            <input type="checkbox" id="5" name="checkbox" value="5" readonly="readonly"> - 5
+
+            <h2>{{form.body.label_tag}}</h2>
+            {{form.body}}
+            <br>
+            <input type="submit" value="Envoyer">
+        </div>
+    </form>
+</div>
+</body>
+</html>
