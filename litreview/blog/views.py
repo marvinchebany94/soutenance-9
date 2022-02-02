@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
 from blog.models import ConnexionForm, InscriptionForm, TicketForm, User, \
     Ticket, Review, TicketModifForm, CritiqueTicketForm, AddUser, UserFollows, \
-    CritiqueForm, CritiqueModifForm
+    CritiqueForm, CritiqueModifForm, ResetPasswordForm
 from itertools import chain
 from operator import attrgetter
 
@@ -315,32 +315,7 @@ def page_creation_ticket(request):
     return render(request, 'templates/blog/creation_ticket.html', context)
 
 
-def page_vos_posts(request):
-    try:
-        if not request.session['connected']:
-            print(request.session['connected'])
-            return redirect('/index')
-        else:
-            pass
-    except KeyError:
-        print("probleme avec la session")
-
-    user = User.objects.get(username=request.session['username'])
-    tickets = Ticket.objects.filter(user=user)
-    reviews = Review.objects.filter(user_associe=user)
-    reviews_ticket_associeted_id = [review.ticket_associe_id for review in reviews]
-    tickets_associated_to_reviews = Ticket.objects.filter(id__in=reviews_ticket_associeted_id)
-    tickets_reviews = sorted(chain(tickets, reviews), key=attrgetter('time_created'),
-                             reverse=True)
-    context = {
-        'tickets_associated_to_reviews': tickets_associated_to_reviews,
-        'tickets_reviews': tickets_reviews,
-        'user_id': user.id
-    }
-    return render(request, 'templates/blog/vos_posts.html', context)
-
-
-def page_modification_ticket(request, id):
+def page_modification_ticket(request, ticket_id):
     try:
         if not request.session['connected']:
             print(request.session['connected'])
@@ -352,13 +327,13 @@ def page_modification_ticket(request, id):
 
     form = TicketModifForm()
     try:
-        ticket = Ticket.objects.get(id=id)
+        ticket = Ticket.objects.get(id=ticket_id)
     except ValueError:
         return redirect('/vos-posts')
 
     user_id = User.objects.get(username=request.session['username']).id
 
-    if Ticket.objects.get(id=id).user_id == user_id:
+    if Ticket.objects.get(id=ticket_id).user_id == user_id:
         if request.method == 'POST':
             form = TicketModifForm(request.POST)
             if form.is_valid():
@@ -376,16 +351,16 @@ def page_modification_ticket(request, id):
                             return render(request, 'templates/blog/modifier-ticket.html', context)
                         else:
                             if title and not description:
-                                ticket = Ticket.objects.get(id=id)
+                                ticket = Ticket.objects.get(id=ticket_id)
                                 ticket.title = title
                                 ticket.time_created = datetime.now()
                             elif title and description:
-                                ticket = Ticket.objects.get(id=id)
+                                ticket = Ticket.objects.get(id=ticket_id)
                                 ticket.description = description
                                 ticket.title = title
                                 ticket.time_created = datetime.now()
                             else:
-                                ticket = Ticket.objects.get(id=id)
+                                ticket = Ticket.objects.get(id=ticket_id)
                                 ticket.description = description
                                 ticket.time_created = datetime.now()
 
@@ -454,11 +429,6 @@ def page_supprimer_ticket(request, ticket_id):
 
 
 def page_creation_ticket_critique(request):
-    """
-    Mettre en place un systeme de sécurité pour empêcher les gens de modifier la valeur des notes
-    :param request:
-    :return:
-    """
     try:
         if not request.session['connected']:
             print(request.session['connected'])
@@ -513,7 +483,7 @@ def logout_view(request):
     return redirect('/index')
 
 
-def page_test(request):
+def page_flux(request):
     try:
         if not request.session['connected']:
             print(request.session['connected'])
@@ -701,7 +671,40 @@ def page_modifier_review(request, review_id):
     }
     return render(request, 'templates/blog/creation-critique.html', context)
 
+
+def page_reset_password(request):
+    try:
+        if request.session['connected']:
+            print(request.session['connected'])
+            return redirect('/flux')
+        else:
+            pass
+    except KeyError:
+        print("probleme avec la session")
+    form = ResetPasswordForm()
+    message = False
+    if request.method == "POST":
+        form = ResetPasswordForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            if not email:
+                message = "Le champ n'a pas été rempli"
+            else:
+                try:
+                    User.objects.get(email=email)
+                    message = "Un mail a été envoyé pour réinitialiser votre mot de passe"
+                except ObjectDoesNotExist:
+                    message = "L'email rentré n'existe pas dans la base de données."
+        else:
+            message = "Le formulaire n'est pas bien rempli."
+    else:
+        pass
+    context = {
+        'form': form,
+        'message': message
+    }
+    return render(request, 'templates/blog/password-oublie.html', context)
+
 """
-rajouter le titre et étoiles aux review dans flux
 liens mot de passe oublié
 """

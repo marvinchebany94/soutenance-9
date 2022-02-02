@@ -2,7 +2,11 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Page de flux</title>
+    {% if modif_review %}
+    <title>modifier un ticket</title>
+    {% else %}
+    <title>créer un ticket</title>
+    {% endif %}
     {% block header %}
     {% include 'blog/barre_de_navigation.html' %}
     {% endblock %}

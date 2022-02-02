@@ -152,3 +152,8 @@ class CritiqueModifForm(forms.Form):
                             widget=forms.TextInput())
     commentaire = forms.CharField(max_length=8192, label='Commentaire', required=False,
                                   widget=forms.Textarea(attrs={'cols': 50, 'rows': 5}))
+
+
+class ResetPasswordForm(forms.Form):
+    email = forms.EmailField(max_length=254, required=True, label='Email',
+                             widget=forms.EmailInput(attrs={'placeholder': 'Ton email'}))

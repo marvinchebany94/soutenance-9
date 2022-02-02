@@ -4,13 +4,16 @@
     margin-left: 200px;
     margin-right: 200px;
     margin-bottom:25px;
+    min-width: 1000px;
 }
 
 h1 {
     text-align: center;
+    margin: auto;
+    min-width: 1000px;
 }
 
-#inscription {
+#inscription, #div_form_passwd_oublie {
     
     border-color: black;
     border-style: solid;
@@ -19,6 +22,7 @@ h1 {
     margin-left: 200px;
     margin-right: 200px;
     margin-bottom:25px;
+    min-width: 1000px;
 }
 
 #connexion {
@@ -31,7 +35,7 @@ h1 {
     overflow: hidden;
 }
 
-input[type="text"], #id_password  {
+input[type="text"], input[type="password"], input[type="email"]  {
     width: 500px;
     height: 25px;
     margin-bottom: 15px;
