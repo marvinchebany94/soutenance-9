@@ -74,10 +74,14 @@
             <br>
             <p id="book_title">{{q.title}}</p>
             <br>
-            <p id="description">{{q.description}}</p>
+            <div class="description">
+            <p id="description" style="margin-bottom: 10px">{{q.description}}</p>
+            </div>
             <br>
-            <button class="button" onclick="window.location.href = '/supprimer-ticket/{{q.id}}'";>Supprimer</button>
-        <button class="button" onclick="window.location.href = '/modifier-ticket/{{q.id}}'";>Modifier</button>
+            <div id="bouton_div">
+                <button class="button" onclick="window.location.href = '/supprimer-ticket/{{q.id}}'";>Supprimer</button>
+                <button class="button" onclick="window.location.href = '/modifier-ticket/{{q.id}}'";>Modifier</button>
+            </div>
         </div>
     {% endif %}
 {% endfor %}

@@ -68,7 +68,7 @@
                         <br>
                         <p id="book_title">{{ticket.title}}</p>
                         <br>
-                        <p id="description">{{ticket.description}}</p>
+                        <p id="description" class="description">{{ticket.description}}</p>
                         <br>
                         {% if q.ticket_associe_id not in tickets_already_commented %}
                             <button class="button" onclick="window.location.href = '{% url 'creer-une-critique' ticket.id %}'";>Créer une critique</button>
@@ -90,7 +90,7 @@
                 <br>
                 <p id="book_title">{{q.title}}</p>
                 <br>
-                <p id="description">{{q.description}}</p>
+                <p id="description" class="description">{{q.description}}</p>
                 <br>
                 {% if q.id not in tickets_already_commented %}
                     <button class="button" onclick="window.location.href = '{% url 'creer-une-critique' q.id %}'";>Créer une critique</button>
@@ -128,7 +128,7 @@
                             <p id="book_title">{{review.headline}} - ★★★★★</p>
                             {% endif %}
                             <br>
-                            <p id="description">{{review.body}}</p>
+                            <p id="description" class="description">{{review.body}}</p>
                             <br>
                          </div>
                     {% endif %}
