@@ -20,7 +20,7 @@
 {% if error %}
     <h2>Il y a eu un problème.</h2>
 {% endif %}
-{% if modif_review %}
+{% if modif_review  and not review_modifiee %}
     <h2 style="text-align:center; margin-left:auto; margin-right:auto; min-width:1000px;">Modifier votre critique</h2>
 {% endif %}
 {% if ticket_doesnt_exist %}
@@ -53,15 +53,78 @@
                 >Commentaire : {{review.body}}</p>
               {% endif %}
         {{form.commentaire}}
-
-        <h2>Note</h2>
+          {% if review %}
+            {% if review.rating == 0 %}
+                <h2>Note</h2>
+                <input type="checkbox" id="0" name="checkbox" value="0" readonly="readonly" checked> - 0
+                <input type="checkbox" id="1" name="checkbox" value="1" readonly="readonly"> - 1
+                <input type="checkbox" id="2" name="checkbox" value="2" readonly="readonly"> - 2
+                <input type="checkbox" id="3" name="checkbox" value="3" readonly="readonly"> - 3
+                <input type="checkbox" id="4" name="checkbox" value="4" readonly="readonly"> - 4
+                <input type="checkbox" id="5" name="checkbox" value="5" readonly="readonly"> - 5
+            <br>
+            {% endif %}
+            {% if review.rating == 1 %}
+            <h2>Note</h2>
+            <input type="checkbox" id="0" name="checkbox" value="0" readonly="readonly"> - 0
+            <input type="checkbox" id="1" name="checkbox" value="1" readonly="readonly" checked> - 1
+            <input type="checkbox" id="2" name="checkbox" value="2" readonly="readonly"> - 2
+            <input type="checkbox" id="3" name="checkbox" value="3" readonly="readonly"> - 3
+            <input type="checkbox" id="4" name="checkbox" value="4" readonly="readonly"> - 4
+            <input type="checkbox" id="5" name="checkbox" value="5" readonly="readonly"> - 5
+          <br>
+          {% endif %}
+          {% if review.rating == 2 %}
+            <h2>Note</h2>
+            <input type="checkbox" id="0" name="checkbox" value="0" readonly="readonly"> - 0
+            <input type="checkbox" id="1" name="checkbox" value="1" readonly="readonly"> - 1
+            <input type="checkbox" id="2" name="checkbox" value="2" readonly="readonly" checked> - 2
+            <input type="checkbox" id="3" name="checkbox" value="3" readonly="readonly"> - 3
+            <input type="checkbox" id="4" name="checkbox" value="4" readonly="readonly"> - 4
+            <input type="checkbox" id="5" name="checkbox" value="5" readonly="readonly"> - 5
+        <br>
+          {% endif %}
+          {% if review.rating == 3 %}
+            <h2>Note</h2>
+            <input type="checkbox" id="0" name="checkbox" value="0" readonly="readonly"> - 0
+            <input type="checkbox" id="1" name="checkbox" value="1" readonly="readonly"> - 1
+            <input type="checkbox" id="2" name="checkbox" value="2" readonly="readonly"> - 2
+            <input type="checkbox" id="3" name="checkbox" value="3" readonly="readonly" checked> - 3
+            <input type="checkbox" id="4" name="checkbox" value="4" readonly="readonly"> - 4
+            <input type="checkbox" id="5" name="checkbox" value="5" readonly="readonly"> - 5
+        <br>
+          {% endif %}
+          {% if review.rating == 4 %}
+            <h2>Note</h2>
+            <input type="checkbox" id="0" name="checkbox" value="0" readonly="readonly"> - 0
+            <input type="checkbox" id="1" name="checkbox" value="1" readonly="readonly"> - 1
+            <input type="checkbox" id="2" name="checkbox" value="2" readonly="readonly"> - 2
+            <input type="checkbox" id="3" name="checkbox" value="3" readonly="readonly"> - 3
+            <input type="checkbox" id="4" name="checkbox" value="4" readonly="readonly" checked> - 4
+            <input type="checkbox" id="5" name="checkbox" value="5" readonly="readonly"> - 5
+        <br>
+          {% endif %}
+          {% if review.rating == 5 %}
+            <h2>Note</h2>
             <input type="checkbox" id="0" name="checkbox" value="0" readonly="readonly"> - 0
             <input type="checkbox" id="1" name="checkbox" value="1" readonly="readonly"> - 1
             <input type="checkbox" id="2" name="checkbox" value="2" readonly="readonly"> - 2
             <input type="checkbox" id="3" name="checkbox" value="3" readonly="readonly"> - 3
             <input type="checkbox" id="4" name="checkbox" value="4" readonly="readonly"> - 4
-            <input type="checkbox" id="5" name="checkbox" value="5" readonly="readonly"> - 5
+            <input type="checkbox" id="5" name="checkbox" value="5" readonly="readonly" checked> - 5
         <br>
+          {% endif %}
+          {% else %}
+              <h2>Note</h2>
+                <input type="checkbox" id="0" name="checkbox" value="0" readonly="readonly"> - 0
+                <input type="checkbox" id="1" name="checkbox" value="1" readonly="readonly"> - 1
+                <input type="checkbox" id="2" name="checkbox" value="2" readonly="readonly"> - 2
+                <input type="checkbox" id="3" name="checkbox" value="3" readonly="readonly"> - 3
+                <input type="checkbox" id="4" name="checkbox" value="4" readonly="readonly"> - 4
+                <input type="checkbox" id="5" name="checkbox" value="5" readonly="readonly"> - 5
+            <br>
+          {% endif %}
+
         <input id="bouton_envoyer" type="submit" value="envoyer">
       </form>
     </div>

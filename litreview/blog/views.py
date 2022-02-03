@@ -1,4 +1,6 @@
 from datetime import datetime
+
+import django
 from django.db import IntegrityError
 from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
@@ -613,6 +615,7 @@ def page_modifier_review(request, review_id):
         if form.is_valid():
             critique_title = form.cleaned_data['titre']
             critique_note = request.POST.get('checkbox')
+            print(critique_note)
             critique_commentaire = form.cleaned_data['commentaire']
             dictionnaire_post = {'note': critique_note, 'title': critique_title,
                                  'commentaire': critique_commentaire}
@@ -704,7 +707,3 @@ def page_reset_password(request):
         'message': message
     }
     return render(request, 'templates/blog/password-oublie.html', context)
-
-"""
-liens mot de passe oublié
-"""

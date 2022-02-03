@@ -16,8 +16,9 @@ Including another URLconf
 from django.urls import path
 from blog import views
 
+
 urlpatterns = [
-    path('index/', views.connexion),
+    path('index/', views.connexion, name="index"),
     path('inscription/', views.page_inscription),
     path('abonnement/', views.page_onglet_abonnement),
     path('creer-une-critique/<ticket_id>/', views.page_creation_critique_reponse_a_un_ticket,
