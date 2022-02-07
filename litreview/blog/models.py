@@ -148,9 +148,9 @@ class CritiqueForm(forms.Form):
 
 
 class CritiqueModifForm(forms.Form):
-    titre = forms.CharField(max_length=128, label='Titre', required=False,
+    titre = forms.CharField(max_length=128, label='Titre', required=False, initial="",
                             widget=forms.TextInput())
-    commentaire = forms.CharField(max_length=8192, label='Commentaire', required=False,
+    commentaire = forms.CharField(max_length=8192, label='Commentaire', required=False, initial="",
                                   widget=forms.Textarea(attrs={'cols': 50, 'rows': 5}))
 
 

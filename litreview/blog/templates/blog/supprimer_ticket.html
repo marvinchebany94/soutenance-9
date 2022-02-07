@@ -15,7 +15,7 @@
     <h1>Le ticket n'est pas à vous</h1>
 {% else %}
     <div id="ticket_a_supprimer"></div>
-        <form method="post" action="" style="text-align: center">
+        <form method="post" action="" style="text-align: center; margin: auto; min-width:1000px;">
             {% csrf_token %}
             <h2>Title : {{ticket.title}}</h2>
             <h2>Description : {{ticket.description}}</h2>

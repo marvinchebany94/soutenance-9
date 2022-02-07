@@ -337,8 +337,8 @@ def page_modification_ticket(request, ticket_id):
         if request.method == 'POST':
             form = TicketModifForm(request.POST)
             if form.is_valid():
-                title = form.cleaned_data['title']
-                description = form.cleaned_data['description']
+                title = request.POST.get('title')
+                description = request.POST.get('description')
                 if Ticket.unique_title_by_user(Ticket, title, user_id):
                     try:
                         if not title and not description:
@@ -607,14 +607,12 @@ def page_modifier_review(request, review_id):
         return redirect('/vos-posts')
     except ObjectDoesNotExist:
         return redirect('/vos-posts')
-    form = CritiqueModifForm()
     if request.method == "POST":
         form = CritiqueModifForm(request.POST)
         if form.is_valid():
-            critique_title = form.cleaned_data['titre']
+            critique_title = request.POST.get('titre')
             critique_note = request.POST.get('checkbox')
-            print(critique_note)
-            critique_commentaire = form.cleaned_data['commentaire']
+            critique_commentaire = request.POST.get('commentaire')
             dictionnaire_post = {'note': critique_note, 'title': critique_title,
                                  'commentaire': critique_commentaire}
             if not critique_note and not critique_commentaire and \
@@ -660,7 +658,7 @@ def page_modifier_review(request, review_id):
             print("le formulaire est invalide.")
             error = True
     else:
-        pass
+        form = CritiqueModifForm()
 
     context = {
         'modif_review': modif_review,

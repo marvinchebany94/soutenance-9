@@ -13,24 +13,24 @@
 <body>
 <div id="formulaire_modif_ticket">
 
-    <h2>Modifier votre ticket</h2>
+    <h2 style="text-align:center;min-width:1000px;margin-left: 200px;
+    margin-right: 200px;
+    min-width: 1000px;">Modifier votre ticket</h2>
 
     <form id="form_modif_ticket" method="post" action="">
         {% csrf_token %}
 
         {{ form.title.label_tag }}
         <br>
+        <input type="text" name="title" id="id_title" maxlength="128" value="{{ticket.title}}">
         <p>Titre actuel : {{ ticket.title }}</p>
-        {{ form.title }}
+
         <br>
         {{ form.description.label_tag }}
         <br>
-        {% if not ticket.description %}
-            <p>Aucune description.</p>
-        {% else %}
-            <p>Description actuelle : {{ ticket.description }}</p>
-        {% endif %}
-        {{ form.description }}
+        <textarea name="description" cols="50" rows="5" maxlength="8192" id="id_description">{{ticket.description}}
+          </textarea>
+
         <br>
         <input type="file" id="file">
         <br>

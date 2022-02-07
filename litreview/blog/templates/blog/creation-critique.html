@@ -41,18 +41,11 @@
         <h2>Critique</h2>
 
           <h2>{{ form.titre.label_tag}}</h2>
-              {% if modif_review %}
-                <p style="text-align:center; margin-left:auto; margin-right:auto;"
-                >Titre actuel : {{review.headline}}</p>
-              {% endif %}
-            {{form.titre}}
+          <input type="text" name="titre" id="id_titre" value="{{review.headline}}">
 
         <h2>{{ form.commentaire.label_tag}}</h2>
-          {% if modif_review %}
-                <p style="text-align:center; margin-left:auto; margin-right:auto;"
-                >Commentaire : {{review.body}}</p>
-              {% endif %}
-        {{form.commentaire}}
+          <textarea name="commentaire" cols="50" rows="5" maxlength="8192" id="id_commentaire">{{review.body}}
+          </textarea>
           {% if review %}
             {% if review.rating == 0 %}
                 <h2>Note</h2>
