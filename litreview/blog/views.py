@@ -1,6 +1,4 @@
 from datetime import datetime
-
-import django
 from django.db import IntegrityError
 from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
