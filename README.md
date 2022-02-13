@@ -3,16 +3,27 @@
 Le project consiste en une application web deployée à l'aide du framework django. Le site qu'il nous était demandé de faire est un site sur lequel on peut s'inscrire, se connecter, créer des tickets, répondre à des des tickets, s'abonner à des gens, se désabonner, et se deconncter.
 
 ##[Installation]
+
 ouvrir l'invite de commandes
+
 cd "chemin du dossier"
+
 python -m venv env (creer l'environnement env)
+
 cd env/Scripts
+
 activate (pour activer l'environnement)
+
 cd ..
+
 cd ..
+
 python -m pip install -r requirements.txt (on telecharge dans notre environnement les modules nécéssaires)
+
 cd  litreview
+
 manage.py runserver --insecure (le --insecure sert à faire en sorte que le site utilise nos fichiers .css même en DEBUG = False dans settings.py)
+
 
 ###[utilisation]
 Dans l'invite de commande la ligne correspondant à l'url à entrer dans le navigateur vous sera donné. 
