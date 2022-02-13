@@ -36,7 +36,7 @@ Dans l'invite de commande la ligne correspondant à l'url à entrer dans le navi
 
 /index/         --> entrer son nom d'utilisateur | mot de passe
 
-/flux/          --> c'est la page sur laquelle on arrive quand on se connecte. On peut voir les tickets et critiques des personnes que l'on suit avec : le nom d'utilisateur, la                     date de création, le titre, la description et la note attribuée. 
+/flux/          --> c'est la page sur laquelle on arrive quand on se connecte. On peut voir les tickets et critiques des personnes que l'on suit avec : le nom d'utilisateur, la date de création, le titre, la description et la note attribuée. 
 
                     --> bouton "demander une critique" pour créer un ticket (titre | description | telecharger le fichier(obselete)) /creer-un-ticket/
                     
@@ -66,3 +66,5 @@ Dans l'invite de commande la ligne correspondant à l'url à entrer dans le navi
                       --> bouton "Désabonner" à côté de chaque utilisateur suivi
                       
                    --> liste des personnes qui nous suivent sous le titre "Abonnés"
+                   
+/deconnexion/     --> lien "Se deconnecter" ou entrer l'url dans la barre de navigation.                   
