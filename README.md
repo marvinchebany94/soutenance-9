@@ -19,22 +19,38 @@ Dans l'invite de commande la ligne correspondant à l'url à entrer dans le navi
 ---> starting development server at http://127.0.0.1/
 
 *-- s'inscrire --*
+
 /inscription/   --> entrer un nom d'utilisateur | mot de passe | confirmation du mot de passe | un email @gmail.com 
+
 /index/         --> entrer son nom d'utilisateur | mot de passe
 
 /flux/          --> c'est la page sur laquelle on arrive quand on se connecte. On peut voir les tickets et critiques des personnes que l'on suit avec : le nom d'utilisateur, la                     date de création, le titre, la description et la note attribuée. 
+
                     --> bouton "demander une critique" pour créer un ticket (titre | description | telecharger le fichier(obselete)) /creer-un-ticket/
+                    
                     --> bouton "Créer une critique" pour creer un ticket et sa critique en même temps (titre | description | telecharger le fichier(obselete) | titre critique |
                         Note critique | Commentaire critique)  /creer-ticket-et-critique/
+                        
                 --> bouton "Crér une critique" sous les tickets auquels nous n'avons pas répondu /creer-une-critique/{ticket_id}/
                 
-/vos-posts/     --> Il faut soit cliquer sur "Posts" dans la liste des liens, soit entrer cet url dans la barre de navigation. 
+                
+/vos-posts/     --> Il faut soit cliquer sur "Posts" dans la liste des liens, soit entrer cet url dans la barre de navigation.
+
                     --> liste de ses tickets
-                       --> bouton modifier | supprimer
+                    
+                       --> bouton modifier | supprimer  
+                       
                     --> Liste de ses critiques 
+                    
                        --> bouton modifier | supprimer
+                       
+                       
 /abonnement/    --> Cliquer sur le lien "Abonnement" ou écrire l'url dans la barre de navigation.
+
                    --> Suivre des personnes en entrant leur nom dans le champ sous "Suivre d'autres utilisateurs"
+                   
                    --> Liste des personnes auquelles nous sommes abonnés sous le titre "Abonnements"
+                   
                       --> bouton "Désabonner" à côté de chaque utilisateur suivi
+                      
                    --> liste des personnes qui nous suivent sous le titre "Abonnés"
