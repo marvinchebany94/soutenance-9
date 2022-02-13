@@ -26,6 +26,7 @@ manage.py runserver --insecure (le --insecure sert à faire en sorte que le site
 
 
 ###[utilisation]
+
 Dans l'invite de commande la ligne correspondant à l'url à entrer dans le navigateur vous sera donné. 
 ---> starting development server at http://127.0.0.1/
 
