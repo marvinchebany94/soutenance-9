@@ -36,6 +36,9 @@ Dans l'invite de commande la ligne correspondant à l'url à entrer dans le navi
 
 /index/         --> entrer son nom d'utilisateur | mot de passe
 
+                mot de passe oublié?  --> Si vous avez oublié votre mot de passe vous cliquer ici, vous entrez votre email, puis un mail vous sera envoyé pour en créer un nouveau. (Obselete pour le moment)
+                
+
 /flux/          --> c'est la page sur laquelle on arrive quand on se connecte. On peut voir les tickets et critiques des personnes que l'on suit avec : le nom d'utilisateur, la date de création, le titre, la description et la note attribuée. 
 
                     --> bouton "demander une critique" pour créer un ticket (titre | description | telecharger le fichier(obselete)) /creer-un-ticket/
@@ -67,4 +70,12 @@ Dans l'invite de commande la ligne correspondant à l'url à entrer dans le navi
                       
                    --> liste des personnes qui nous suivent sous le titre "Abonnés"
                    
-/deconnexion/     --> lien "Se deconnecter" ou entrer l'url dans la barre de navigation.                   
+/deconnexion/     --> lien "Se deconnecter" ou entrer l'url dans la barre de navigation.
+
+###[AXE D AMELIORATION]
+
+Dans les prochaines mises à jours nous allons ajouter : 
+
+    -->la possibilité aux personnes d'ajouter des images dans leurs tickets
+    
+    -->mise en route de l'url de changement de mot de passe. Pour le moment veuillez nous contacter directement pour recréer un mot de passe.
