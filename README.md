@@ -79,3 +79,13 @@ Dans les prochaines mises à jours nous allons ajouter :
     -->la possibilité aux personnes d'ajouter des images dans leurs tickets
     
     -->mise en route de l'url de changement de mot de passe. Pour le moment veuillez nous contacter directement pour recréer un mot de passe.
+  
+####Dossier Flake-Report 
+
+      Un dossier flake-report se trouve dans /litreview. Le dossier flake-report se crée comme suit :
+
+      Dans l'invite de commande se rendre dans le dossier qui contient blog/litreview/manage.py/db.sqlite3 
+
+      -->flake8 --format=html --htmldir=flake-report
+      
+      La ligne créra un dossier flake/report contenant toutes les potentielles erreurs. Cliquer sur index.html pour avoir la liste des erreurs de tous les fichiers '.py'.
