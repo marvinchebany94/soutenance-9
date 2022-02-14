@@ -1,10 +1,11 @@
 #title  {
     border-color: black;
     border-style: solid;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom:25px;
     min-width: 1000px;
+    width: 500px;
 }
 
 h1 {
@@ -19,10 +20,9 @@ h1 {
     border-style: solid;
     margin: auto;
     text-align: center;
-    margin-left: 200px;
-    margin-right: 200px;
     margin-bottom:25px;
     min-width: 1000px;
+    width: 500px;
 }
 
 #connexion {
@@ -30,10 +30,9 @@ h1 {
     border-style: solid;
     margin: auto;
     text-align: center;
-    margin-left: 200px;
-    margin-right: 200px;
     min-width: 1000px;
     overflow: hidden;
+    width: 500px;
 }
 
 input[type="text"], input[type="password"], input[type="email"]  {
