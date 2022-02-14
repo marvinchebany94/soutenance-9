@@ -1,5 +1,8 @@
+Django==4.0.2
 asgiref==3.4.1
 backports.zoneinfo==0.2.1
-Django==4.0.1
 sqlparse==0.4.2
 tzdata==2021.5
+flake8==3.9.2
+flake8-html==0.4.1
+h11==0.13.0
